@@ -5,19 +5,11 @@ type Props = {
   onContentEndVisible(): void;
 };
 
-class Options {
-  constructor(
-    public rootMargin: string,
-    public threshold: number,
-    public root: HTMLElement | null
-  ) {}
-}
-
 export function Observer({ children, onContentEndVisible }: Props) {
   const endContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const options: Options = {
+    const options: IntersectionObserverInit = {
       rootMargin: "0px",
       threshold: 1.0,
       root: null,
